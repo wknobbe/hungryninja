@@ -1,43 +1,19 @@
 using System;
 using System.Collections.Generic;
+using hungryninja.Interfaces;
 
 namespace hungryninja.Models
 {
-    public class Ninja
+    abstract class Ninja
     {
         public int calorieIntake;
-        public List<Food> FoodHistory;
+        public List<IConsumable> ConsumptionHistory;
         public Ninja()
         {
             calorieIntake = 0;
-            FoodHistory = new List<Food>();
+            ConsumptionHistory = new List<IConsumable>();
         }
-        public bool IsFull
-        {
-            get
-            {
-                if(calorieIntake > 3000)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-        }
-        public void Eat(Food item)
-        {
-            if(!IsFull)
-            {
-                calorieIntake += item.Calories;
-                FoodHistory.Add(item);
-                Console.WriteLine($"Name: {item.Name}, Spicy: {item.IsSpicy}, Sweet: {item.IsSweet}");
-            }
-            else
-            {
-                Console.WriteLine("Ninja is full and cannot eat anymore!!");
-            }
-        }
+        public abstract bool IsFull {get;}
+        public abstract void Consume(IConsumable item);
     }
 }

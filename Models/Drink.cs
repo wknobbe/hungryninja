@@ -2,7 +2,7 @@ using hungryninja.Interfaces;
 
 namespace hungryninja.Models
 {
-    public class Food : IConsumable
+    public class Drink : IConsumable
     {
         public string Name {get;set;}
         public int Calories {get;set;}
@@ -10,9 +10,9 @@ namespace hungryninja.Models
         public bool IsSweet {get;set;}
         public string GetInfo()
         {
-            return $"{Name} (Food). Calories: {Calories}. Spicy?: {IsSpicy}, Sweet?: {IsSweet}";
+            return $"{Name} (Drink). Calories: {Calories}. Spicy?: {IsSpicy}, Sweet?: {IsSweet}";
         }
-        public Food(string name, int cal, bool spi, bool swe)
+        public Drink(string name, int cal, bool spi, bool swe)
         {
             Name = name;
             Calories = cal;
